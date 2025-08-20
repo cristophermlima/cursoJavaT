@@ -11,7 +11,7 @@ public class ProgramVector2 {
 		Scanner sc = new Scanner(System.in);
 		
 		int n = sc.nextInt();	
-			Product[] vect = new Product[n];
+			ProductVector[] vect = new ProducVector[n];
 			
 			for (int i=0; i<vect.length; i++) {
 				sc.nextLine();
@@ -26,7 +26,7 @@ public class ProgramVector2 {
 			}
 			double avg = sum / vect.length;
 			
-			System.out.println("average price = %.2f%n", avg);
+			System.out.printf("average price = %.2f%n", avg);
 		sc.close();
 	}
 
