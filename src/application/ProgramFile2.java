@@ -5,19 +5,15 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-//file reader e filebuffer
+//file reader e filebuffer instancia dentro do try 
 public class ProgramFile2 {
 
 	public static void main(String[] args) {
 
 		String path = "C:\\Users\\Desenvolvimento\\in.txt";
-		FileReader fr = null;
-		BufferedReader br = null;
+	
 		
-		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-			
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
 			
 			while (line != null) {
@@ -28,18 +24,6 @@ public class ProgramFile2 {
 		catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		finally {
-			try {
-			if (br != null) {
-				br.close();
-			}
-			if (fr != null) {
-				fr.close();
-			}
-			}
-			catch (IOException e) {
-				e.printStackTrace();
-			}
 		
 		}
 }
