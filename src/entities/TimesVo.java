@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class TimesVo {
 
 	private String nome;
@@ -30,6 +32,13 @@ public class TimesVo {
 		this.nome = nome;
 		this.ano = ano;
 	}
+	
+	private ArrayList<JogadoresVo> jogadores = new ArrayList<>();
+
+	public void adicionarJogador(JogadoresVo jogador) {
+	    jogadores.add(jogador);
+	}
+
 	
 	
 }

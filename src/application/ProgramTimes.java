@@ -3,8 +3,9 @@ package application;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.locadora.FilmesVO;
 
-
+import entities.JogadoresVo;
 import entities.TimesVo;
 
 /*criar um menu
@@ -32,7 +33,6 @@ public class ProgramTimes {
 			System.out.println("4-Sair");
 			System.out.println("5-Adicionar jogadores");
 
-
 			opcaoLida = sc.nextInt();
 
 			if (opcaoLida == 1) {
@@ -42,7 +42,6 @@ public class ProgramTimes {
 
 				System.out.println("Digite o ano do time que deseja inserir: ");
 				int ano = sc.nextInt();
-				
 
 				TimesVo novoTime = new TimesVo(nome, ano);
 				times.add(novoTime);
@@ -53,14 +52,13 @@ public class ProgramTimes {
 			else if (opcaoLida == 2) {
 				System.out.print("Digite o nome do time a ser removido: ");
 				sc.nextLine();
-				
+
 				String nome = sc.nextLine();
-				
 
 				boolean encontrado = false;
 
 				for (int i = 0; i < times.size(); i++) {
-					
+
 					if (times.get(i).getNome().equalsIgnoreCase(nome)) {
 						times.remove(i);
 						System.out.println("Time removido com sucesso.");
@@ -72,20 +70,66 @@ public class ProgramTimes {
 					System.out.println("Time com esse nome não foi encontrado.");
 				}
 
-				
-				}
-			
+			}
+
 			if (opcaoLida == 3) {
 				System.out.println("Times cadastrados: ");
 				for (TimesVo time : times) {
-					System.out.println("Nome: " + time.getNome() + " | Ano: " + time.getAno() );
+					System.out.println("Nome: " + time.getNome() + " | Ano: " + time.getAno());
+				}
+
+			}
+			/*
+			 * 5-inserir jogadores ---dai pede o nome do jogador, idade, e o nome do time
+			 * que ele vai ser adicionado (dai quando começar essa segunda parte dentro de
+			 * TimesVO terá um ArrayList<JogadoresVO> jogadores;
+			 */
+
+			if (opcaoLida == 5) {
+
+				boolean encontrado = false;
+				System.out.print("Digite o nome do time ao qual deseja adicionar um jogador: ");
+				String nomeDoTime = sc.nextLine();
+				sc.nextLine();
+
+				for (TimesVo times1 : times) {
+
+					if (times1.getNome().equals(nomeDoTime)) {
+
+						System.out.println("Digite o nome do jogador: ");
+						String novoJogador = sc.nextLine();
+
+						System.out.println("Digite a idade do jogador: ");
+						int idade = sc.nextInt();
+						sc.nextLine();
+
+						JogadoresVo jogador = new JogadoresVo(novoJogador, idade);
+
+						times1.adicionarJogador(jogador);
+
+						System.out.println("jogador adicionado com sucesso!");
+						break;
+					}
+
 				}
 
 			}
 
-			
+			/*
+			 * System.out.println("Digite o nome do jogador: "); sc.nextLine(); String nome
+			 * = sc.next();
+			 * 
+			 * System.out.println("Digite a idade do jodador: "); int idade = sc.nextInt();
+			 * 
+			 * System.out.println("Digite o time do jodador: "); String time =
+			 * sc.nextLine();
+			 * 
+			 * ArrayList<JogadoresVo> jogador = null; JogadoresVo novoJogador = new
+			 * JogadoresVo(nome, idade); jogador.add(novoJogador);
+			 */
+
 		}
 		sc.close();
 	}
-	
+
 }
