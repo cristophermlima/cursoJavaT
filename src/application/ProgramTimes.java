@@ -86,47 +86,34 @@ public class ProgramTimes {
 			 */
 
 			if (opcaoLida == 5) {
+			    boolean encontrado = false;
 
-				boolean encontrado = false;
-				System.out.print("Digite o nome do time ao qual deseja adicionar um jogador: ");
-				String nomeDoTime = sc.nextLine();
-				sc.nextLine();
+			    System.out.print("Digite o nome do time ao qual deseja adicionar um jogador: ");
+			    String nomeDoTime = sc.nextLine(); 
+			    for (TimesVo times1 : times) {
+			        if (times1.getNome().equalsIgnoreCase(nomeDoTime)) {
+			            encontrado = true;
 
-				for (TimesVo times1 : times) {
+			            System.out.print("Digite o nome do jogador: ");
+			            String nomeJogador = sc.nextLine(); 
 
-					if (times1.getNome().equals(nomeDoTime)) {
+			            System.out.print("Digite a idade do jogador: ");
+			            int idade = sc.nextInt();
+			            sc.nextLine(); 
 
-						System.out.println("Digite o nome do jogador: ");
-						String novoJogador = sc.nextLine();
+			            JogadoresVo jogador = new JogadoresVo(nomeJogador, idade);
+			            times1.adicionarJogador(jogador);
 
-						System.out.println("Digite a idade do jogador: ");
-						int idade = sc.nextInt();
-						sc.nextLine();
+			            System.out.println("Jogador adicionado com sucesso!");
+			            break;
+			        }
+			    }
 
-						JogadoresVo jogador = new JogadoresVo(novoJogador, idade);
-
-						times1.adicionarJogador(jogador);
-
-						System.out.println("jogador adicionado com sucesso!");
-						break;
-					}
-
-				}
-
+			    if (!encontrado) {
+			        System.out.println("Time não encontrado.");
+			    }
 			}
 
-			/*
-			 * System.out.println("Digite o nome do jogador: "); sc.nextLine(); String nome
-			 * = sc.next();
-			 * 
-			 * System.out.println("Digite a idade do jodador: "); int idade = sc.nextInt();
-			 * 
-			 * System.out.println("Digite o time do jodador: "); String time =
-			 * sc.nextLine();
-			 * 
-			 * ArrayList<JogadoresVo> jogador = null; JogadoresVo novoJogador = new
-			 * JogadoresVo(nome, idade); jogador.add(novoJogador);
-			 */
 
 		}
 		sc.close();
