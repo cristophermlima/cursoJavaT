@@ -3,8 +3,6 @@ package application;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.locadora.FilmesVO;
-
 import entities.JogadoresVo;
 import entities.TimesVo;
 
@@ -34,14 +32,17 @@ public class ProgramTimes {
 			System.out.println("5-Adicionar jogadores");
 
 			opcaoLida = sc.nextInt();
+			sc.nextLine();
 
 			if (opcaoLida == 1) {
 				System.out.println("Digite o nome do time que deseja inserir: ");
-				sc.nextLine();
+		
 				String nome = sc.next();
+				sc.nextLine();
 
 				System.out.println("Digite o ano do time que deseja inserir: ");
 				int ano = sc.nextInt();
+				sc.nextLine();
 
 				TimesVo novoTime = new TimesVo(nome, ano);
 				times.add(novoTime);
@@ -86,6 +87,7 @@ public class ProgramTimes {
 			 */
 
 			if (opcaoLida == 5) {
+			
 			    boolean encontrado = false;
 
 			    System.out.print("Digite o nome do time ao qual deseja adicionar um jogador: ");
