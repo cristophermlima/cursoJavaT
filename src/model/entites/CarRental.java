@@ -14,7 +14,7 @@ public class CarRental {
 		
 	}
 
-	public CarRental(LocalDateTime start, LocalDateTime finissh, Vehicle vehicle, Invoice invoice) {
+	public CarRental(LocalDateTime start, LocalDateTime finissh, Vehicle vehicle) {
 		
 		this.start = start;
 		this.finissh = finissh;
