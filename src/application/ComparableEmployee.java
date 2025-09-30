@@ -20,7 +20,7 @@ public class ComparableEmployee {
 			String employeeCsv = br.readLine();
 			while (employeeCsv != null) {
 				String[] fields = employeeCsv.split(",");
-				list.add(new Employee(fields[0], Double.parseDouble(fields[1])));
+				list.add(new Employee(fields[0], null, Double.parseDouble(fields[1])));
 				employeeCsv = br.readLine();
 			}
 			Colletions.sort(list);

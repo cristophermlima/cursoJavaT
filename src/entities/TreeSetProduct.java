@@ -13,8 +13,11 @@ public class TreeSetProduct {
 	 public String toString() {
 	 return "Product [name=" + name + ", price=" + price + "]";
 	 }
-	 @Override
 	 public int compareTo(TreeSetProduct other) {
 	 return name.toUpperCase().compareTo(other.getName().toUpperCase());
 	 }
+	private String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
